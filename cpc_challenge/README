@@ -1,0 +1,14 @@
+Installation: 
+  Program was running in a python 3.4.1 virtualenv, additional requirements are listed in the requirements.txt
+
+  communications.__init__ has uses an environment variable called 'COMMUNICATIONS_SETTINGS' that points to a settings file with debug settings, and api keys for mandrill and mailgun. 
+      MAILGUN_AUTH_KEY="mailgun key"
+      MANDRILL_AUTH_KEY="mandrill key"
+
+  To switch mail providers DEFAULT_SENDMAIL_PROVIDER can be set to 1 for mailgun, or 2 for mandrill.
+
+  I chose Python, and Flask after reading the summaries of the recommended microframeworks, due to it being similar to Django, since I had previous experience with Django.
+
+  Initially i planned on setting up the project to use a queuing, and job runner such as rabbitmq and celery to keep track of signals from failures to resend messages, but after the learning curve with Flask I decided that was too ambitious. I also planned on recording message logs, implementing logging, and setup sphinx docs but it just would have taken too much time. If I had the time I would have implented the previously discussed additions. 
+
+  Also, since jinja2 is a requirement of Flask, I used their do_striptags() method instead of coding an html stripping method. Though this would have been easy to do with a regex, it would be fairly easy to get around the regex if you tried.
